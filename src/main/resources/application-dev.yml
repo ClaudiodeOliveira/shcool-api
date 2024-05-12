@@ -1,0 +1,24 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: school
+  datasource:
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5433/postgres?useTimezone=true&serverTimezone=UTC
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  cache:
+    jcache:
+      config: classpath:ehcache.xml
+
+springdoc:
+  api-docs:
+    path: /api-docs
