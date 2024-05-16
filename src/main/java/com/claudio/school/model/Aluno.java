@@ -1,5 +1,6 @@
 package com.claudio.school.model;
 
+import com.claudio.school.dtos.aluno.AlunoUDTO;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
@@ -7,6 +8,7 @@ import jakarta.validation.constraints.Email;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 @Getter
 @Setter
@@ -43,4 +45,11 @@ public class Aluno extends Audit {
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "cd_matricula")
     private Matricula matricula;
+
+    public void atualizar(AlunoUDTO alunoUDTO) {
+        this.nome = Objects.isNull(alunoUDTO.nome()) ? this.nome : alunoUDTO.nome();
+        this.email = Objects.isNull(alunoUDTO.email()) ? this.email : alunoUDTO.email();
+        this.dataNascimento = Objects.isNull(alunoUDTO.dataNascimento()) ? this.dataNascimento : alunoUDTO.dataNascimento();
+    }
+
 }

@@ -1,7 +1,7 @@
 package com.claudio.school.service;
 
-import com.claudio.school.dtos.CursoPDTO;
-import com.claudio.school.dtos.CursoUDTO;
+import com.claudio.school.dtos.curso.CursoPDTO;
+import com.claudio.school.dtos.curso.CursoUDTO;
 import com.claudio.school.model.Curso;
 import org.springframework.data.domain.Page;
 
@@ -12,7 +12,7 @@ public interface CursoService {
 
     Curso findById(Long id);
 
-    Page<Curso> findAll(int page, int size);
+    Page<Curso> findAll(int page, int size, String[] sort);
 
     List<Curso> saveAll(List<CursoPDTO> cursoPDTOS);
 

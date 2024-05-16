@@ -1,4 +1,4 @@
-package com.claudio.school.dtos;
+package com.claudio.school.dtos.curso;
 
 import jakarta.validation.constraints.NotNull;
 

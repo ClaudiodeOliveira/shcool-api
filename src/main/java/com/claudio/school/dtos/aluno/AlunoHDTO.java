@@ -1,5 +1,6 @@
-package com.claudio.school.dtos;
+package com.claudio.school.dtos.aluno;
 
+import com.claudio.school.dtos.matricula.MatriculaDTO;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -7,7 +8,7 @@ import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDate;
 
-public record AlunoDTO(
+public record AlunoHDTO(
         @NotBlank(message = "O campo nome não pode ser nulo ou vazio.")
         String nome,
 
@@ -18,8 +19,6 @@ public record AlunoDTO(
         @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy", locale = "pt-BR", timezone = "Brazil/East")
         @NotNull(message = "O campo dataNascimento não pode ser nulo.")
         LocalDate dataNascimento,
-
-        EndrecoDTO endreco,
 
         MatriculaDTO matricula) {
 }

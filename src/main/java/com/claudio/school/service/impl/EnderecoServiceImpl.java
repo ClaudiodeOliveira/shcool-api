@@ -1,6 +1,6 @@
 package com.claudio.school.service.impl;
 
-import com.claudio.school.dtos.CepDTO;
+import com.claudio.school.dtos.cep.CepDTO;
 import com.claudio.school.exceptions.BusinessException;
 import com.claudio.school.model.Endereco;
 import com.claudio.school.model.UF;

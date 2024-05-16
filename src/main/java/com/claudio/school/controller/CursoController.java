@@ -1,8 +1,8 @@
 package com.claudio.school.controller;
 
 
-import com.claudio.school.dtos.CursoPDTO;
-import com.claudio.school.dtos.CursoUDTO;
+import com.claudio.school.dtos.curso.CursoPDTO;
+import com.claudio.school.dtos.curso.CursoUDTO;
 import com.claudio.school.exceptions.handler.ApiErrorResponse;
 import com.claudio.school.model.Curso;
 import com.claudio.school.service.CursoService;
@@ -116,10 +116,11 @@ public class CursoController {
     @GetMapping
     @Cacheable("curso")
     public ResponseEntity<Response<Page<Curso>>> findAll(@RequestParam(value = "page", required = false, defaultValue = "0") int page,
-                                                         @RequestParam(value = "size", required = false, defaultValue = "10") int size) {
+                                                         @RequestParam(value = "size", required = false, defaultValue = "10") int size,
+                                                         @RequestParam(value = "sort", defaultValue = "id, asc") String[] sort) {
         log.info("Start - CursoController.findAll");
         Response<Page<Curso>> response = new Response<>();
-        Page<Curso> cursos = this.cursoService.findAll(page, size);
+        Page<Curso> cursos = this.cursoService.findAll(page, size, sort);
         response.setData(cursos);
         log.info("End - CursoController.findAll");
         return ResponseEntity.status(HttpStatus.OK).body(response);

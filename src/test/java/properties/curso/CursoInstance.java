@@ -1,7 +1,7 @@
 package properties.curso;
 
-import com.claudio.school.dtos.CursoPDTO;
-import com.claudio.school.dtos.CursoUDTO;
+import com.claudio.school.dtos.curso.CursoPDTO;
+import com.claudio.school.dtos.curso.CursoUDTO;
 import com.claudio.school.model.Curso;
 
 public class CursoInstance extends CursoProperties {

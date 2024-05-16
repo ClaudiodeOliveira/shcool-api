@@ -1,7 +1,9 @@
 package com.claudio.school.controller;
 
 
-import com.claudio.school.dtos.AlunoDTO;
+import com.claudio.school.dtos.aluno.AlunoDTO;
+import com.claudio.school.dtos.aluno.AlunoHDTO;
+import com.claudio.school.dtos.aluno.AlunoUDTO;
 import com.claudio.school.exceptions.handler.ApiErrorResponse;
 import com.claudio.school.model.Aluno;
 import com.claudio.school.service.AlunoService;
@@ -21,8 +23,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @Slf4j
 @Validated
@@ -60,10 +60,11 @@ public class AlunoController {
     @GetMapping
     @Cacheable("aluno")
     public ResponseEntity<Response<Page<Aluno>>> findAll(@RequestParam(value = "page", required = false, defaultValue = "0") int page,
-                                                         @RequestParam(value = "size", required = false, defaultValue = "10") int size) {
+                                                         @RequestParam(value = "size", required = false, defaultValue = "10") int size,
+                                                         @RequestParam(value = "sort", defaultValue = "id, asc") String[] sort) {
         log.info("Start - AlunoController.findAll");
         Response<Page<Aluno>> response = new Response<>();
-        Page<Aluno> alunos = this.alunoService.findAll(page, size);
+        Page<Aluno> alunos = this.alunoService.findAll(page, size, sort);
         response.setData(alunos);
         log.info("End - AlunoController.findAll");
         return ResponseEntity.status(HttpStatus.OK).body(response);
@@ -98,6 +99,57 @@ public class AlunoController {
         this.alunoService.delete(id);
         log.info("End - AlunoController.delete");
         return ResponseEntity.status(HttpStatus.OK).build();
+    }
+
+    @Operation(summary = "Adicionar Curso ao Aluno Pelo ID", responses = {@io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "200",
+            description = "Operação concluída com Sucesso.", useReturnTypeSchema = true),
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "400", description = "Requisição Inválida.", content =
+                    {@Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = ApiErrorResponse.class)))}),
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "500", description = "Erro interno ao realizar operação.", content
+                    = {@Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = ApiErrorResponse.class)))}),})
+    @PatchMapping("/adicionar/curso/{id}")
+    @CacheEvict(value = "aluno", allEntries = true)
+    public ResponseEntity<Response<AlunoHDTO>> addCurso(@PathVariable Long id, @RequestParam("nomeCurso") String nomeCurso) {
+        log.info("Start - AlunoController.addCurso - Curso: {}", nomeCurso);
+        Response<AlunoHDTO> response = new Response<>();
+        AlunoHDTO aluno = this.alunoService.addCurso(id, nomeCurso);
+        response.setData(aluno);
+        log.info("End - AlunoController.addCurso - Curso: {}", nomeCurso);
+        return ResponseEntity.status(HttpStatus.OK).body(response);
+    }
+
+    @Operation(summary = "Remover Curso do Aluno Pelo ID", responses = {@io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "200",
+            description = "Operação concluída com Sucesso.", useReturnTypeSchema = true),
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "400", description = "Requisição Inválida.", content =
+                    {@Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = ApiErrorResponse.class)))}),
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "500", description = "Erro interno ao realizar operação.", content
+                    = {@Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = ApiErrorResponse.class)))}),})
+    @PatchMapping("/remover/curso/{id}")
+    @CacheEvict(value = "aluno", allEntries = true)
+    public ResponseEntity<Response<AlunoHDTO>> removeCurso(@PathVariable Long id, @RequestParam("nomeCurso") String nomeCurso){
+        log.info("Start - AlunoController.removeCurso - Curso: {}", nomeCurso);
+        Response<AlunoHDTO> response = new Response<>();
+        AlunoHDTO aluno = this.alunoService.removeCurso(id, nomeCurso);
+        response.setData(aluno);
+        log.info("End - AlunoController.removeCurso - Curso: {}", nomeCurso);
+        return ResponseEntity.status(HttpStatus.OK).body(response);
+    }
+
+    @Operation(summary = "Atualizar Aluno", responses = {@io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "201", description =
+            "Operação concluída com Sucesso.", useReturnTypeSchema = true), @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode =
+            "400", description = "Requisição Inválida.", content = {@Content(mediaType = "application/json", array = @ArraySchema(schema =
+    @Schema(implementation = ApiErrorResponse.class)))}), @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "500", description =
+            "Erro interno ao realizar operação.", content = {@Content(mediaType = "application/json", array = @ArraySchema(schema =
+    @Schema(implementation = ApiErrorResponse.class)))}),})
+    @PutMapping
+    @CacheEvict(value = "aluno", allEntries = true)
+    public ResponseEntity<Response<Aluno>> update(@Valid @RequestBody AlunoUDTO alunoUDTO) {
+        log.info("Start - AlunoController.update - Aluno: {}", alunoUDTO);
+        Response<Aluno> response = new Response<>();
+        Aluno aluno = this.alunoService.update(alunoUDTO);
+        response.setData(aluno);
+        log.info("End - AlunoController.save - update: {}", aluno);
+        return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 
 }

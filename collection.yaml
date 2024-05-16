@@ -1,0 +1,454 @@
+_type: export
+__export_format: 4
+__export_date: 2024-05-16T12:59:43.084Z
+__export_source: insomnia.desktop.app:v9.2.0
+resources:
+  - _id: req_2551e620f2924277bf4255c29f890a0a
+    parentId: fld_e85e8bf0b3434617941cadd5ca984549
+    modified: 1715463843470
+    created: 1715463829135
+    url: http://localhost:8081/curso/1
+    name: delete
+    description: ""
+    method: DELETE
+    body: {}
+    preRequestScript: ""
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/9.1.1
+    authentication: {}
+    metaSortKey: -1715463829135
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_e85e8bf0b3434617941cadd5ca984549
+    parentId: wrk_a4694555f05546c591fe8d9a5665cc4b
+    modified: 1715460398686
+    created: 1715460398686
+    name: Curso
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1715460398686
+    _type: request_group
+  - _id: wrk_a4694555f05546c591fe8d9a5665cc4b
+    parentId: null
+    modified: 1715282234643
+    created: 1715282219896
+    name: School
+    description: ""
+    scope: collection
+    _type: workspace
+  - _id: req_bb58006b570f4a48b168030736077fb2
+    parentId: fld_e85e8bf0b3434617941cadd5ca984549
+    modified: 1715864049764
+    created: 1715461176328
+    url: http://localhost:8081/curso
+    name: findAll
+    description: ""
+    method: GET
+    body: {}
+    preRequestScript: ""
+    parameters:
+      - id: pair_d9bcff163f804791837d65f7d2050df3
+        name: page
+        value: "3"
+        description: ""
+        disabled: true
+      - id: pair_be203516f34244ac9614b1eebb7aa181
+        name: size
+        value: "1"
+        description: ""
+        disabled: true
+      - id: pair_6f17d12604c34d3292742c2c3224be5f
+        name: sort
+        value: nome, desc
+        description: ""
+    headers:
+      - name: User-Agent
+        value: insomnia/9.1.1
+    authentication: {}
+    metaSortKey: -1715461148055
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_7cabf122be3c4bfb9a50cb645a9ae5c4
+    parentId: fld_e85e8bf0b3434617941cadd5ca984549
+    modified: 1715463942032
+    created: 1715461147955
+    url: http://localhost:8081/curso/2
+    name: findById
+    description: ""
+    method: GET
+    body: {}
+    preRequestScript: ""
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/9.1.1
+    authentication: {}
+    metaSortKey: -1715461147955
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_c7fba8d3842f4ecc80829330fbee1735
+    parentId: fld_e85e8bf0b3434617941cadd5ca984549
+    modified: 1715463975836
+    created: 1715460402905
+    url: http://localhost:8081/curso
+    name: save
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: >-
+        {
+        	"nome": "Sistemas de Informações",
+        	"descricao": "A Ciência da Computação envolve o estudo de algoritmos, programação, sistemas de computadores e inteligência artificial. ",
+        	"duracao": 4
+        }
+    preRequestScript: ""
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/9.1.1
+    authentication: {}
+    metaSortKey: -1715460402905
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_4944574c05004491bb8d9b78cbbc1d97
+    parentId: fld_e85e8bf0b3434617941cadd5ca984549
+    modified: 1715476139201
+    created: 1715475916125
+    url: http://localhost:8081/curso
+    name: update
+    description: ""
+    method: PUT
+    body:
+      mimeType: application/json
+      text: >-
+        {
+        	"id": 3,
+        	"descricao": "O curso de Sistemas de Informações envolve o estudo de algoritmos, programação, sistemas de computadores e inteligência artificial."
+
+        }
+    preRequestScript: ""
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/9.1.1
+    authentication: {}
+    metaSortKey: -1715420804499
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_982dbb3f1b39487dbb97a87d40a5ed88
+    parentId: fld_e85e8bf0b3434617941cadd5ca984549
+    modified: 1715463056696
+    created: 1715462744196
+    url: http://localhost:8081/curso/all
+    name: saveAll
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: >
+        
+        	[
+        	{"nome": "Psicologia",
+        	"descricao": " O curso de Psicologia explora o funcionamento da mente humana e do comportamento. ",
+        	"duracao": 4
+        	},
+        			{"nome": "Economia",
+        	"descricao": "O curso de Economia estuda como a sociedade utiliza recursos escassos para produzir e distribuir bens e serviços. ",
+        	"duracao": 4
+        	},
+        			{"nome": "Arquitetura e Urbanismo",
+        	"descricao": "O curso de Arquitetura e Urbanismo ensina os alunos a projetar espaços habitáveis e sustentáveis. Eles estudam design arquitetônico, planejamento urbano, história da arquitetura, tecnologia da construção e aspectos ambientais.",
+        	"duracao": 4
+        	}
+        	]
+    preRequestScript: ""
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/9.1.1
+    authentication: {}
+    metaSortKey: -1715381206093
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_f4ac41f7d9c242d1b1a1e24399f0709f
+    parentId: fld_7676d79d2e57453e9fdd6a486fcf55fb
+    modified: 1715863841006
+    created: 1715302009281
+    url: http://localhost:8081/aluno
+    name: findAll
+    description: ""
+    method: GET
+    body: {}
+    preRequestScript: ""
+    parameters:
+      - id: pair_fed52d6dddef493da1697ab9b1c5de1e
+        name: page
+        value: "0"
+        description: ""
+        disabled: true
+      - id: pair_1b32c7c98c324f69ab05d7c36d12a02d
+        name: size
+        value: "1"
+        description: ""
+        disabled: true
+      - id: pair_819dae1db510439192102df37e3ce8e1
+        name: sort
+        value: dataNascimento, desc
+        description: ""
+        disabled: false
+    headers:
+      - name: User-Agent
+        value: insomnia/9.1.1
+    authentication: {}
+    metaSortKey: -1715302009281
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_7676d79d2e57453e9fdd6a486fcf55fb
+    parentId: wrk_a4694555f05546c591fe8d9a5665cc4b
+    modified: 1715282244570
+    created: 1715282244570
+    name: Aluno
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1715282244570
+    _type: request_group
+  - _id: req_e64e7e98a4d5432fa6b9ba4d50233b65
+    parentId: fld_7676d79d2e57453e9fdd6a486fcf55fb
+    modified: 1715799755598
+    created: 1715792531244
+    url: http://localhost:8081/aluno/adicionar/curso/1
+    name: addCurso
+    description: ""
+    method: PATCH
+    body: {}
+    preRequestScript: ""
+    parameters:
+      - id: pair_40d2d4ad991e4435a1a4faba085c82b2
+        name: nomeCurso
+        value: Psicologia
+        description: ""
+    headers:
+      - name: User-Agent
+        value: insomnia/9.1.1
+    authentication: {}
+    metaSortKey: -1715297068724
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_405a8bf6186843daac87e15fc534757a
+    parentId: fld_7676d79d2e57453e9fdd6a486fcf55fb
+    modified: 1715794187343
+    created: 1715794126696
+    url: http://localhost:8081/aluno/remover/curso/1
+    name: removeCurso
+    description: ""
+    method: PATCH
+    body: {}
+    preRequestScript: ""
+    parameters:
+      - id: pair_40d2d4ad991e4435a1a4faba085c82b2
+        name: nomeCurso
+        value: Psicologia
+        description: ""
+    headers:
+      - name: User-Agent
+        value: insomnia/9.1.1
+    authentication: {}
+    metaSortKey: -1715294598445.5
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_fccd5bd6df8240d392af5ce701b55306
+    parentId: fld_7676d79d2e57453e9fdd6a486fcf55fb
+    modified: 1715800453544
+    created: 1715302064690
+    url: http://localhost:8081/aluno/2
+    name: findById
+    description: ""
+    method: GET
+    body: {}
+    preRequestScript: ""
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/9.1.1
+    authentication: {}
+    metaSortKey: -1715292128167
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_6d18cc424bc24db19e7c182b67e991a0
+    parentId: fld_7676d79d2e57453e9fdd6a486fcf55fb
+    modified: 1715863878270
+    created: 1715282247053
+    url: http://localhost:8081/aluno
+    name: save
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"nome": "Teste",
+        	"email": "teste@gmail.com",
+        	"dataNascimento": "12/05/1995",
+        	"endreco":{
+        		"cep": "31630900",
+        		"numero": 132,
+        		"complemento": "Apto. 201"
+        	},
+        	"matricula":{
+        		"cursos":[
+        			{
+        				"nome": "Economia"
+        			}
+        		]
+        	}
+        }
+    preRequestScript: ""
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/9.0.0
+    authentication: {}
+    metaSortKey: -1715282247053
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_875ac8a25af64e498950c428b71a6d7f
+    parentId: fld_7676d79d2e57453e9fdd6a486fcf55fb
+    modified: 1715801443650
+    created: 1715801265769
+    url: http://localhost:8081/aluno
+    name: update
+    description: ""
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"id": 2,
+        	"email": "teste@gmail.com.br"
+        }
+    preRequestScript: ""
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/9.0.0
+    authentication: {}
+    metaSortKey: -1714859907586
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_7e497777ffffdadc0ea6d132f085cc7c86f1030f
+    parentId: wrk_a4694555f05546c591fe8d9a5665cc4b
+    modified: 1715282219898
+    created: 1715282219898
+    name: Base Environment
+    data: {}
+    dataPropertyOrder: null
+    color: null
+    isPrivate: false
+    metaSortKey: 1715282219898
+    _type: environment
+  - _id: jar_7e497777ffffdadc0ea6d132f085cc7c86f1030f
+    parentId: wrk_a4694555f05546c591fe8d9a5665cc4b
+    modified: 1715282219899
+    created: 1715282219899
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar

@@ -1,6 +1,6 @@
 package com.claudio.school.service.impl;
 
-import com.claudio.school.dtos.CepDTO;
+import com.claudio.school.dtos.cep.CepDTO;
 import com.claudio.school.http.CepApi;
 import com.claudio.school.service.CepService;
 import lombok.RequiredArgsConstructor;

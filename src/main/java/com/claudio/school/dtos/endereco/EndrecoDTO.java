@@ -1,4 +1,4 @@
-package com.claudio.school.dtos;
+package com.claudio.school.dtos.endereco;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

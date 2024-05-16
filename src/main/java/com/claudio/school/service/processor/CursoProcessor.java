@@ -32,7 +32,6 @@ public class CursoProcessor {
     public void notExists(String nome) {
         log.info("Start - CursoProcessor.notExists - ID: {}", nome);
         Optional<Curso> optional = this.cursoRepository.findByNome(nome);
-        if (optional.isPresent())
-            throw new BusinessException(MessageUtils.getMensagemValidacao("curso.exists.nome", nome));
+        if (optional.isPresent()) throw new BusinessException(MessageUtils.getMensagemValidacao("curso.exists.nome", nome));
     }
 }

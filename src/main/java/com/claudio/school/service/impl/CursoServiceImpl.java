@@ -1,7 +1,7 @@
 package com.claudio.school.service.impl;
 
-import com.claudio.school.dtos.CursoPDTO;
-import com.claudio.school.dtos.CursoUDTO;
+import com.claudio.school.dtos.curso.CursoPDTO;
+import com.claudio.school.dtos.curso.CursoUDTO;
 import com.claudio.school.model.Curso;
 import com.claudio.school.repository.CursoRepository;
 import com.claudio.school.service.CursoService;
@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -42,9 +43,12 @@ public class CursoServiceImpl implements CursoService {
     }
 
     @Override
-    public Page<Curso> findAll(int page, int size) {
+    public Page<Curso> findAll(int page, int size, String[] sort) {
         log.info("Buscando todos os cursos");
-        return this.cursoRepository.findAll(PageRequest.of(page, size));
+        String field = sort[0];
+        String sortingDirection = sort[1];
+        Sort.Direction direction = sortingDirection.equalsIgnoreCase("asc") ? Sort.Direction.ASC : Sort.Direction.DESC;
+        return this.cursoRepository.findAll(PageRequest.of(page, size, Sort.by(direction, field)));
     }
 
     @Override

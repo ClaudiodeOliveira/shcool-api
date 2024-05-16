@@ -1,7 +1,7 @@
 package com.claudio.school.service;
 
-import com.claudio.school.dtos.CursoPDTO;
-import com.claudio.school.dtos.CursoUDTO;
+import com.claudio.school.dtos.curso.CursoPDTO;
+import com.claudio.school.dtos.curso.CursoUDTO;
 import com.claudio.school.model.Curso;
 import com.claudio.school.repository.CursoRepository;
 import com.claudio.school.service.impl.CursoServiceImpl;
@@ -23,7 +23,7 @@ import static org.mockito.Mockito.when;
 @SpringBootTest
 @ActiveProfiles("test")
 @DisplayName("Service Implementation - Curso")
-public class CursoTest extends CursoProperties {
+public class CursoServiceTest extends CursoProperties {
 
     @Mock
     private Curso curso;
@@ -52,9 +52,7 @@ public class CursoTest extends CursoProperties {
     @DisplayName("Save Curso")
     void save() {
         when(this.cursoRepository.save(any())).thenReturn(this.curso);
-
         Curso response = this.cursoService.save(this.cursoPDTO);
-
         assertEquals(this.curso, response);
     }
 
